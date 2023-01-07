@@ -27,9 +27,11 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
     private external fun glesResize(width: Int, height: Int)
     // 在Surface渲染时调用
     private external fun glesDraw()
+    external fun glesSetType(type: Int)
 
     init {
         mAssetMgr = context.assets
+        glesSetType(GL_HELLO_TRIANGLE_TYPE)
     }
 
     override fun onSurfaceCreated(gl: GL10?, config: EGLConfig?) {

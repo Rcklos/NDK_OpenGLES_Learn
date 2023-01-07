@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NDK_OpenGLES_Learn</string>
+    <string name="default_sample">default</string>
 </resources>

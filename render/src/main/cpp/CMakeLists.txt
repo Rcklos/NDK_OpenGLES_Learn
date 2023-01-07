@@ -18,6 +18,7 @@ include_directories(
         utils/time
 
         model
+        sample
 )
 
 #自定义搜索规则

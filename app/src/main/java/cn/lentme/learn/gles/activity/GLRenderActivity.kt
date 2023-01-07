@@ -1,4 +1,4 @@
-package cn.lentme.learn.gles
+package cn.lentme.learn.gles.activity
 
 import android.app.ActivityManager
 import android.opengl.GLSurfaceView
@@ -7,11 +7,10 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import cn.lentme.gles.render.MyNativeRender
 
-class MainActivity : AppCompatActivity() {
+class GLRenderActivity: AppCompatActivity() {
     companion object {
         private const val CONTEXT_CLIENT_VERSION = 3
     }
-
     private lateinit var mRender: MyNativeRender
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,9 +30,13 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
+        intent.extras?.let {
+            val type = it.getInt("type")
+            mRender.glesSetType(type)
+        }
+
         setContentView(surface)
     }
-
 
     private fun detectOpenGLES30(): Boolean {
         val am = getSystemService(ACTIVITY_SERVICE) as ActivityManager
