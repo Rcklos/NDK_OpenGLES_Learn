@@ -51,6 +51,7 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
             Pair("自定义颜色的三角形", GL_HELLO_TRIANGLE2),
             Pair("VBO和EBO的应用", GL_HELLO_TRIANGLE3),
             Pair("你好，四边形", GL_HELLO_RECTANGLE),
+            Pair("两种颜色的三角形绘制一个四边形", GL_HELLO_RECTANGLE2),
         )
     }
 }

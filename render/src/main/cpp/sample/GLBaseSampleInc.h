@@ -9,5 +9,6 @@
 #include "hello/HelloTriangle2.h"
 #include "hello/HelloTriangle3.h"
 #include "hello/HelloRectangle.h"
+#include "hello/HelloRectangle2.h"
 
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLEINC_H

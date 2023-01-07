@@ -52,6 +52,9 @@ Java_cn_lentme_gles_render_MyNativeRender_glesSetType(JNIEnv *env, jobject thiz,
         case GL_HELLO_RECTANGLE:
             sample = new HelloRectangle();
             break;
+        case GL_HELLO_RECTANGLE2:
+            sample = new HelloRectangle2();
+            break;
         default:
             LOGE("sample type not found!!!!");
             break;

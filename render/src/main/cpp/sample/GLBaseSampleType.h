@@ -10,5 +10,6 @@
 #define GL_HELLO_TRIANGLE2                              (GL_BASE_SAMPLE_TYPE + 2)
 #define GL_HELLO_TRIANGLE3                              (GL_BASE_SAMPLE_TYPE + 3)
 #define GL_HELLO_RECTANGLE                              (GL_BASE_SAMPLE_TYPE + 4)
+#define GL_HELLO_RECTANGLE2                             (GL_BASE_SAMPLE_TYPE + 5)
 
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLETYPE_H
