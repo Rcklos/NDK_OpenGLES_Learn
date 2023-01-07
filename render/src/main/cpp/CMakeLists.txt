@@ -9,6 +9,34 @@ cmake_minimum_required(VERSION 3.18.1)
 
 project("glnative-render")
 
+include_directories(
+        include
+
+        utils
+        utils/graphics
+        utils/log
+        utils/time
+
+        model
+)
+
+#自定义搜索规则
+file(GLOB src-files
+       ${CMAKE_SOURCE_DIR}/*.cpp
+
+        ${CMAKE_SOURCE_DIR}/*/*.cpp
+
+        ${CMAKE_SOURCE_DIR}/*/*/*.cpp
+
+        ${CMAKE_SOURCE_DIR}/*/*/*/*.cpp
+
+        ${CMAKE_SOURCE_DIR}/*/*/*/*/*.cpp
+
+        ${CMAKE_SOURCE_DIR}/*/*/*/*/*/*.cpp
+
+        ${CMAKE_SOURCE_DIR}/*/*/*/*/*/*/*.cpp
+        )
+
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
@@ -21,7 +49,7 @@ add_library( # Sets the name of the library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        render.cpp)
+        ${src-files})
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -46,6 +74,7 @@ target_link_libraries( # Specifies the target library.
         # 添加链接库
         android
         GLESv3
+        EGL
 
         # Links the target library to the log library
         # included in the NDK.

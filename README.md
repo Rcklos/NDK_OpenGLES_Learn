@@ -18,9 +18,18 @@
 
 ---
 
+### 项目配置
+
+#### 配置GLM
+
+直接下载[glm-0.9.9.8.zip](https://github.com/g-truc/glm/releases/download/0.9.9.8/glm-0.9.9.8.zip)
+
+将`glm-0.9.9.8/glm`复制到`render/src/main/cpp/include/`目录
+
+---
+
 ### 笔记章节
 
 [你好, 三角形](doc/001-HelloTriangle.md)
-
 
 ---

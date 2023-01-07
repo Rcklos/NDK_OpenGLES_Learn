@@ -2,6 +2,10 @@
 
 这个笔记旨在记录创建OpenGL ES3的项目并渲染三角形的过程。
 
+如果您先前没有OpenGL或者OpenGL ES的基础，您可以先跟着以下的步骤去完成一下。
+
+各个步骤，如果您有不了解的地方，可以继续阅读后文，或者阅读[README.md](../README.md)中的参考资料。
+
 ### 初始化项目
 
 新建`Empty Project`的Android项目之后，新建一个`Native Library`作为编写OpenGL ES代码的模块。
@@ -22,7 +26,7 @@
     System.loadLibrary("glnative-render")
    ```
 
-> 以上的配置可以根据自己的习惯进行调整，记录配置仅是为了后文的文件做备忘
+> 以上的配置可以根据自己的习惯进行调整，记录配置仅是为了后文做备忘
 
 配置OpenGL ES3
 
@@ -86,6 +90,30 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
 }
 ```
 
+编写顶点渲染器代码:
+
+```glsl
+#version 300 es
+layout(location = 0) in vec4 vPosition;
+void main()
+{
+   gl_Position = vPosition;
+}
+
+```
+
+编写片段着色器代码:
+
+```glsl
+#version 300 es
+precision mediump float;
+out vec4 fragColor;
+void main()
+{
+   fragColor = vec4(1.0, 0.0, 0.0, 1.0);
+}
+```
+
 Native代码篇幅过长，可以查看:
 
 [hello triangle.cpp](references/hello_triangle.cpp)
@@ -132,6 +160,8 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
+---
+
 ### 运行结果
 
-![](http://cdn.lentme.cn/202301051654140.jpg)
+![](figure/hello_triangle.jpg)

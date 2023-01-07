@@ -1,3 +1,4 @@
 /build
 *.idea
+src/main/cpp/include/glm
 #*/.cxx
