@@ -6,3 +6,8 @@ const val GL_HELLO_TRIANGLE2                = GL_BASE_TYPE + 2
 const val GL_HELLO_TRIANGLE3                = GL_BASE_TYPE + 3
 const val GL_HELLO_RECTANGLE                = GL_BASE_TYPE + 4
 const val GL_HELLO_RECTANGLE2               = GL_BASE_TYPE + 5
+const val GL_HELLO_RECTANGLE3               = GL_BASE_TYPE + 6
+
+const val GL_SIMPLE_SCALE                   = GL_BASE_TYPE + 7
+const val GL_SIMPLE_TRANSLATE               = GL_BASE_TYPE + 8
+const val GL_SIMPLE_ROTATE                  = GL_BASE_TYPE + 9

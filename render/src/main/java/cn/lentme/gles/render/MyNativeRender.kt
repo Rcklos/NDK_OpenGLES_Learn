@@ -47,11 +47,18 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
         }
 
         fun loadType(): Array<Pair<String, Int>> = arrayOf(
+            // hello系列
             Pair("你好, 三角形", GL_HELLO_TRIANGLE),
             Pair("自定义颜色的三角形", GL_HELLO_TRIANGLE2),
             Pair("VBO和EBO的应用", GL_HELLO_TRIANGLE3),
             Pair("你好，四边形", GL_HELLO_RECTANGLE),
             Pair("两种颜色的三角形绘制一个四边形", GL_HELLO_RECTANGLE2),
+            Pair("四边形纹理", GL_HELLO_RECTANGLE3),
+
+            // animation系列
+            Pair("简单的缩放动画", GL_SIMPLE_SCALE),
+            Pair("简单的位移动画", GL_SIMPLE_TRANSLATE),
+            Pair("简单的旋转动画", GL_SIMPLE_ROTATE),
         )
     }
 }

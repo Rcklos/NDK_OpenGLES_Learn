@@ -10,5 +10,10 @@
 #include "hello/HelloTriangle3.h"
 #include "hello/HelloRectangle.h"
 #include "hello/HelloRectangle2.h"
+#include "hello/HelloRectangle3.h"
+
+#include "anime/SimpleScale.h"
+#include "anime/SimpleTranslate.h"
+#include "anime/SimpleRotate.h"
 
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLEINC_H

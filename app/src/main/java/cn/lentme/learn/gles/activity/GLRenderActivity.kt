@@ -24,7 +24,7 @@ class GLRenderActivity: AppCompatActivity() {
             // 绑定render
             surface.setRenderer(mRender)
             // 设置渲染模式
-            surface.renderMode = GLSurfaceView.RENDERMODE_WHEN_DIRTY
+            surface.renderMode = GLSurfaceView.RENDERMODE_CONTINUOUSLY
         } else {
             Log.e("MyNativeRender", "OpenGL ES 3.0 not supported on device.  Exiting...")
             finish()
