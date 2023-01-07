@@ -5,7 +5,9 @@
 #ifndef NDK_OPENGLES_LEARN_GLBASESAMPLEINC_H
 #define NDK_OPENGLES_LEARN_GLBASESAMPLEINC_H
 
-#include "triangle/HelloTriangle.h"
-#include "triangle/HelloTriangle2.h"
+#include "hello/HelloTriangle.h"
+#include "hello/HelloTriangle2.h"
+#include "hello/HelloTriangle3.h"
+#include "hello/HelloRectangle.h"
 
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLEINC_H

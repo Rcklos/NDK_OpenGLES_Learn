@@ -40,11 +40,17 @@ extern "C"
 JNIEXPORT void JNICALL
 Java_cn_lentme_gles_render_MyNativeRender_glesSetType(JNIEnv *env, jobject thiz, jint type) {
     switch(type) {
-        case GL_HELLO_TRIANGLE_SAMPLE_TYPE:
+        case GL_HELLO_TRIANGLE:
             sample = new HelloTriangle();
             break;
-        case GL_HELLO_TRIANGLE2_SAMPLE_TYPE:
+        case GL_HELLO_TRIANGLE2:
             sample = new HelloTriangle2();
+            break;
+        case GL_HELLO_TRIANGLE3:
+            sample = new HelloTriangle3();
+            break;
+        case GL_HELLO_RECTANGLE:
+            sample = new HelloRectangle();
             break;
         default:
             LOGE("sample type not found!!!!");

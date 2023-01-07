@@ -13,7 +13,7 @@ import cn.lentme.learn.gles.activity.GLRenderActivity
 
 class GLRecyclerAdapter(
     private val context: Context,
-    private val mData: ArrayList<Pair<String, Int>>
+    private val mData: Array<Pair<String, Int>>
 ) : RecyclerView.Adapter<GLRecyclerAdapter.GLViewHolder>() {
 
     inner class GLViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {

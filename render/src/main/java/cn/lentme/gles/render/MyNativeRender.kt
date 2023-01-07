@@ -10,13 +10,6 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
     // asset，主要用于加载shader、texture、font等资源
     private val mAssetMgr: AssetManager
 
-    companion object {
-        // Used to load the 'render' library on application startup.
-        init {
-            System.loadLibrary("glnative-render")
-        }
-    }
-
     /**
      * A native method that is implemented by the 'render' native library,
      * which is packaged with this application.
@@ -31,7 +24,7 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
 
     init {
         mAssetMgr = context.assets
-        glesSetType(GL_HELLO_TRIANGLE_TYPE)
+        glesSetType(GL_HELLO_TRIANGLE)
     }
 
     override fun onSurfaceCreated(gl: GL10?, config: EGLConfig?) {
@@ -44,5 +37,20 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
 
     override fun onDrawFrame(gl: GL10?) {
         glesDraw()
+    }
+
+
+    companion object {
+        // Used to load the 'render' library on application startup.
+        init {
+            System.loadLibrary("glnative-render")
+        }
+
+        fun loadType(): Array<Pair<String, Int>> = arrayOf(
+            Pair("你好, 三角形", GL_HELLO_TRIANGLE),
+            Pair("自定义颜色的三角形", GL_HELLO_TRIANGLE2),
+            Pair("VBO和EBO的应用", GL_HELLO_TRIANGLE3),
+            Pair("你好，四边形", GL_HELLO_RECTANGLE),
+        )
     }
 }

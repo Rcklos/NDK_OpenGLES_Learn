@@ -1,9 +1,7 @@
 //
 // Created by 20152 on 2023/1/7.
 //
-
-#ifndef NDK_OPENGLES_LEARN_HELLOTRIANGLE2_H
-#define NDK_OPENGLES_LEARN_HELLOTRIANGLE2_H
+#pragma once
 #include "GLBaseSample.h"
 
 // 第二个例子，颜色由用户控制，不再写死到shader
@@ -17,6 +15,3 @@ public:
     void Create() override;
     void Draw() override;
 };
-
-
-#endif //NDK_OPENGLES_LEARN_HELLOTRIANGLE2_H
