@@ -236,7 +236,7 @@ void HelloCube::update(float deltaTime) {
      * 不管行列主序，在数学意义上操作是全等的
      * 只是实际操作起来的时候，需要倒过来，例如mvp变换就变成了[pvm]
      */
-    glm::mat4 proj = glm::perspective(180.f, aspect, 1.0f, 20.f);
+    glm::mat4 proj = glm::perspective(glm::radians(45.f), aspect, 1.0f, 20.f);
     auto model = glm::mat4(1.f);
     // 位移到视野看得到的地方
     model = glm::translate(model, glm::vec3(0.f, 0.f, -3.f));

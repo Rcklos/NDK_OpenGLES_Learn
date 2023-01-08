@@ -31,10 +31,10 @@ void SimpleRotate::Create() {
 }
 
 void SimpleRotate::update(float deltaTime) {
-    if(degree < 360.f) degree += 5.f * deltaTime;
+    if(degree < 360.f) degree += 10.f * deltaTime;
     else degree = 0;
 
-    trans = glm::rotate(glm::mat4(1.0f), degree, glm::vec3(0.f, 0.f, 1.f));
+    trans = glm::rotate(glm::mat4(1.0f), glm::radians(degree), glm::vec3(0.f, 0.f, 1.f));
     auto value = glm::value_ptr(trans);
 //    for(int i = 0; i < 4; i++)
 //            LOGI("%.2f, %.2f, %.2f, %.2f",
