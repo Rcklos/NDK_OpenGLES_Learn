@@ -67,6 +67,9 @@ Java_cn_lentme_gles_render_MyNativeRender_glesSetType(JNIEnv *env, jobject thiz,
         case GL_SIMPLE_ROTATE:
             sample = new SimpleRotate();
             break;
+        case GL_HELLO_CUBE:
+            sample = new HelloCube();
+            break;
         default:
             LOGE("sample type not found!!!!");
             break;
