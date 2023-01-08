@@ -17,5 +17,6 @@
 #include "anime/SimpleRotate.h"
 
 #include "hello/HelloCube.h"
+#include "hello/HelloCube2.h"
 
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLEINC_H

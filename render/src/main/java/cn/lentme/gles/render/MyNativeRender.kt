@@ -61,7 +61,8 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
             Pair("简单的旋转动画", GL_SIMPLE_ROTATE),
 
             // 3D
-            Pair("你好, 立方体", GL_HELLO_CUBE)
+            Pair("你好, 立方体", GL_HELLO_CUBE),
+            Pair("立方体简单的MVP变换", GL_HELLO_CUBE2),
         )
     }
 }

@@ -18,5 +18,6 @@
 #define GL_SIMPLE_ROTATE                                (GL_BASE_SAMPLE_TYPE + 9)
 
 #define GL_HELLO_CUBE                                   (GL_BASE_SAMPLE_TYPE + 10)
+#define GL_HELLO_CUBE2                                  (GL_BASE_SAMPLE_TYPE + 11)
 
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLETYPE_H
