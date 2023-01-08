@@ -18,5 +18,6 @@
 
 #include "hello/HelloCube.h"
 #include "hello/HelloCube2.h"
+#include "hello/HelloCube3.h"
 
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLEINC_H

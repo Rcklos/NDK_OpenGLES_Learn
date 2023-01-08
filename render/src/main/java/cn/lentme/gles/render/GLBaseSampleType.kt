@@ -14,3 +14,4 @@ const val GL_SIMPLE_ROTATE                  = GL_BASE_TYPE + 9
 
 const val GL_HELLO_CUBE                     = GL_BASE_TYPE + 10
 const val GL_HELLO_CUBE2                    = GL_BASE_TYPE + 11
+const val GL_HELLO_CUBE3                    = GL_BASE_TYPE + 12

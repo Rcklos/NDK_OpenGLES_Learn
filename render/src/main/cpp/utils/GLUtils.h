@@ -34,7 +34,7 @@ public:
 	/**
 	 * Loads a texture from assets/texture/<name>
 	 */
-//	static GLuint loadTexture(const char* name);
+	static GLuint loadTexture(const char* name);
 
 	static GLuint loadTgaTexture(const char *fileName);
 	/**

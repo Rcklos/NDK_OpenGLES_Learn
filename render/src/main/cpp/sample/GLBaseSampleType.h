@@ -19,5 +19,6 @@
 
 #define GL_HELLO_CUBE                                   (GL_BASE_SAMPLE_TYPE + 10)
 #define GL_HELLO_CUBE2                                  (GL_BASE_SAMPLE_TYPE + 11)
+#define GL_HELLO_CUBE3                                  (GL_BASE_SAMPLE_TYPE + 12)
 
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLETYPE_H

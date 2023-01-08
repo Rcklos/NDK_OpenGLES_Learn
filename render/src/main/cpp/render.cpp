@@ -73,6 +73,9 @@ Java_cn_lentme_gles_render_MyNativeRender_glesSetType(JNIEnv *env, jobject thiz,
         case GL_HELLO_CUBE2:
             sample = new HelloCube2();
             break;
+        case GL_HELLO_CUBE3:
+            sample = new HelloCube3();
+            break;
         default:
             LOGE("sample type not found!!!!");
             break;

@@ -282,29 +282,29 @@ GLuint GLUtils::loadTgaTexture(const char *fileName) {
 }
 
 
-//GLuint GLUtils::loadTexture(const char *path) {
-//    GLuint textureId = 0;
-//    FUN_BEGIN_TIME("GLUtils::loadTexture")
-//        LOGI("GLUtils::loadTexture path [%s]" ,path)
-//        jclass utilsClass = sEnv->FindClass(
-//                "com/oyp/openglesdemo/Utils");  //com.oyp.openglesdemo.Utils类
-//        if (utilsClass == nullptr) {
-//            LOGE("Couldn't find utils class")
-//            return (GLuint) -1;
-//        }
-//        jmethodID loadTexture = sEnv->GetStaticMethodID(utilsClass, "loadTexture",
-//                                                        "(Landroid/content/res/AssetManager;Ljava/lang/String;)I");
-//        if (loadTexture == nullptr) {
-//            LOGE("Couldn't find loadTexture method")
-//            return (GLuint) -1;
-//        }
-//        jstring pathStr = sEnv->NewStringUTF(path);
-//        textureId = (GLuint) sEnv->CallStaticIntMethod(utilsClass, loadTexture, sAssetManager,
-//                                                       pathStr);
-//        sEnv->DeleteLocalRef(pathStr);
-//    FUN_END_TIME("GLUtils::loadTexture")
-//    return textureId;
-//}
+GLuint GLUtils::loadTexture(const char *path) {
+    GLuint textureId = 0;
+    FUN_BEGIN_TIME("GLUtils::loadTexture")
+        LOGI("GLUtils::loadTexture path [%s]" ,path)
+        jclass utilsClass = sEnv->FindClass(
+                "cn/lentme/gles/render/Utils");
+        if (utilsClass == nullptr) {
+            LOGE("Couldn't find utils class")
+            return (GLuint) -1;
+        }
+        jmethodID loadTexture = sEnv->GetStaticMethodID(utilsClass, "loadTexture",
+                                                        "(Landroid/content/res/AssetManager;Ljava/lang/String;)I");
+        if (loadTexture == nullptr) {
+            LOGE("Couldn't find loadTexture method")
+            return (GLuint) -1;
+        }
+        jstring pathStr = sEnv->NewStringUTF(path);
+        textureId = (GLuint) sEnv->CallStaticIntMethod(utilsClass, loadTexture, sAssetManager,
+                                                       pathStr);
+        sEnv->DeleteLocalRef(pathStr);
+    FUN_END_TIME("GLUtils::loadTexture")
+    return textureId;
+}
 
 char *GLUtils::openTextFile(const char *path) {
     char *buffer;
