@@ -7,7 +7,7 @@
 
 void SimpleLoadModel2::Create() {
     // 加载模型
-    mModel = new Model(std::string(cacheDir) + "/object/spider/spider.obj");
+    mModel = new Model(std::string(cacheDir) + "/object/town/old_town_block.obj");
 
     // 加载渲染器
     VERTEX_SHADER = GLUtils::openTextFile("shader/vertex/simple_load_model.glsl");
@@ -68,11 +68,12 @@ float SimpleLoadModel2::computeDeltaTime() {
 }
 
 void SimpleLoadModel2::update(float deltaTime) {
-    if(degree < 360.f) degree += 15.f * deltaTime;
-    else degree = 0;
+//    if(degree < 360.f) degree += 15.f * deltaTime;
+//    else degree = 0;
 
     auto aspect = (GLfloat) m_Width / (GLfloat) m_Height;
-    auto scale = .1f;
+    auto scale = 0.01f;
+    degree = 60.f;
 
     /**
      * mvp变换顺序:
@@ -95,7 +96,7 @@ void SimpleLoadModel2::update(float deltaTime) {
     // 位移到视野看得到的地方
     model = glm::translate(model, glm::vec3(0.f, 0.f, -10.f));
     // 旋转立方体
-    model = glm::rotate(model, glm::radians(degree), glm::vec3(-1.f, -1.f, 0.f));
+    model = glm::rotate(model, glm::radians(45.f), glm::vec3(1.f, 0.f, 0.f));
     // 缩放
     model = glm::scale(model, glm::vec3(scale, scale, scale));
     mvp = proj * model;
