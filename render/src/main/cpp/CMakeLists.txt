@@ -11,6 +11,7 @@ project("glnative-render")
 
 include_directories(
         include
+        include/opencv_3_0_0
 
         utils
         utils/graphics
@@ -36,6 +37,25 @@ file(GLOB src-files
         ${CMAKE_SOURCE_DIR}/*/*/*/*/*/*.cpp
 
         ${CMAKE_SOURCE_DIR}/*/*/*/*/*/*/*.cpp
+        )
+
+set(thirdPartyLibDir "${CMAKE_SOURCE_DIR}/3rdParty")
+# 导入assimp
+add_library(assimp SHARED IMPORTED)
+set_target_properties(assimp
+        PROPERTIES IMPORTED_LOCATION
+        ${thirdPartyLibDir}/${CMAKE_ANDROID_ARCH_ABI}/libassimp.so)
+
+# 导入opencv
+add_library(opencv_java3 SHARED IMPORTED)
+set_target_properties(opencv_java3
+        PROPERTIES IMPORTED_LOCATION
+        ${thirdPartyLibDir}/${CMAKE_ANDROID_ARCH_ABI}/libopencv_java3.so)
+
+# 把第三方库集中起来
+set(thirdPartyLibs
+        assimp
+        opencv_java3
         )
 
 # Creates and names a library, sets it as either STATIC
@@ -79,4 +99,5 @@ target_link_libraries( # Specifies the target library.
 
         # Links the target library to the log library
         # included in the NDK.
-        ${log-lib})
+        ${log-lib}
+        ${thirdPartyLibs})

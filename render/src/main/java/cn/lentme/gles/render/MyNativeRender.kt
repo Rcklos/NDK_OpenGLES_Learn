@@ -3,6 +3,7 @@ package cn.lentme.gles.render
 import android.content.Context
 import android.content.res.AssetManager
 import android.opengl.GLSurfaceView
+import java.io.File
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 
@@ -39,6 +40,15 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
         glesDraw()
     }
 
+    fun copyAssetsToCache(context: Context) {
+        val fileDir = context.cacheDir!!.absolutePath
+        File(fileDir).let {
+            if(!it.exists()) it.mkdirs()
+        }
+
+        // 复制assets目录文件到sdcard
+        CommonUtils.copyAssetsDirToSDCard(context, "object", fileDir)
+    }
 
     companion object {
         // Used to load the 'render' library on application startup.
@@ -64,6 +74,10 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
             Pair("你好, 立方体", GL_HELLO_CUBE),
             Pair("立方体简单的MVP变换", GL_HELLO_CUBE2),
             Pair("立方体贴图纹理", GL_HELLO_CUBE3),
+
+            // 模型
+            Pair("简单加载模型", GL_SIMPLE_LOAD_MODEL),
+            Pair("加载具有材质的模型", GL_SIMPLE_LOAD_MODEL2)
         )
     }
 }

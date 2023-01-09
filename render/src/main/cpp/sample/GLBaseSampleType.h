@@ -21,4 +21,7 @@
 #define GL_HELLO_CUBE2                                  (GL_BASE_SAMPLE_TYPE + 11)
 #define GL_HELLO_CUBE3                                  (GL_BASE_SAMPLE_TYPE + 12)
 
+#define GL_SIMPLE_LOAD_MODEL                            (GL_BASE_SAMPLE_TYPE + 13)
+#define GL_SIMPLE_LOAD_MODEL2                           (GL_BASE_SAMPLE_TYPE + 14)
+
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLETYPE_H

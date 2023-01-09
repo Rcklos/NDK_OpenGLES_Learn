@@ -18,14 +18,14 @@ public:
     // ------------------------------------------------------------------------
     Shader(const char* vertexStr, const char* fragmentStr)
     {
-        DEBUG_LOGCATE()
+//        DEBUG_LOGCATE()
         // 创建着色器程序
         ID = GLUtils::createProgram(&vertexStr, &fragmentStr);
     }
 
     ~Shader()
     {
-        DEBUG_LOGCATE()
+//        DEBUG_LOGCATE()
     }
 
     void Destroy()

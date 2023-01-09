@@ -20,4 +20,7 @@
 #include "hello/HelloCube2.h"
 #include "hello/HelloCube3.h"
 
+#include "model/SimpleLoadModel.h"
+#include "model/SimpleLoadModel2.h"
+
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLEINC_H

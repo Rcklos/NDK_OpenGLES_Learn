@@ -7,14 +7,18 @@
 
 #include "GLBaseSampleType.h"
 #include "GLUtils.h"
-#include <shader.h>
+#include "model.h"
 #include <GLES3/gl3.h>
+
+#define DEFAULT_OGL_ASSETS_DIR "/data/data/cn.lentme.learn.gles/cache"
 
 class GLBaseSample {
 public:
-    GLBaseSample() {
+    GLBaseSample(): GLBaseSample(DEFAULT_OGL_ASSETS_DIR) {}
+    GLBaseSample(const char* cacheDir) {
         VERTEX_SHADER = GL_NONE;
         FRAGMENT_SHADER = GL_NONE;
+        this->cacheDir = cacheDir;
         m_ProgramObj = 0;
         m_Width = 0;
         m_Height = 0;
@@ -78,6 +82,7 @@ protected:
      * 程序对象
      */
     GLuint m_ProgramObj;
+    const char *cacheDir;
 
     /**
      * 顶点着色器
