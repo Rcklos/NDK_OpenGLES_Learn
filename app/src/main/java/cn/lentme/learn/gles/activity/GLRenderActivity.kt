@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import cn.lentme.gles.render.MyNativeRender
+import cn.lentme.gles.render.ui.MyGLSurfaceView
 import cn.lentme.gles.render.ui.RockerView
 import cn.lentme.learn.gles.databinding.ActivityRenderBinding
 
@@ -25,7 +26,7 @@ class GLRenderActivity: AppCompatActivity() {
     }
 
     private lateinit var mRender: MyNativeRender
-    private lateinit var surface: GLSurfaceView
+    private lateinit var surface: MyGLSurfaceView
     private lateinit var rockerView: RockerView
     private lateinit var mBinding: ActivityRenderBinding
 
@@ -65,7 +66,12 @@ class GLRenderActivity: AppCompatActivity() {
     private fun initRockerView() {
         rockerView = mBinding.rockerView
         rockerView.setOnWheelChangedListener {
-            Log.i(localClassName, "angle == $it")
+            if(it in 0.0f..45.0f || it in (315.0f..360.0f))
+                surface.setDelta(1.0f, 0.0f)
+            if(it in 135.0f..225.0f)
+                surface.setDelta(-1.0f, 0.0f)
+            if(it.isNaN())
+                surface.setDelta(0.0f, 0.0f)
         }
     }
 

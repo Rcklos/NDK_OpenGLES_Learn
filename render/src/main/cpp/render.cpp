@@ -36,6 +36,14 @@ Java_cn_lentme_gles_render_MyNativeRender_glesDraw(JNIEnv *env, jobject thiz) {
         sample->Draw();
     }
 }
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_cn_lentme_gles_render_MyNativeRender_setDelta(JNIEnv *env, jobject thiz, jfloat x, jfloat y) {
+    if(sample != nullptr)
+        sample->SetDelta(x, y);
+}
+
 extern "C"
 JNIEXPORT void JNICALL
 Java_cn_lentme_gles_render_MyNativeRender_glesSetType(JNIEnv *env, jobject thiz, jint type) {
@@ -87,6 +95,9 @@ Java_cn_lentme_gles_render_MyNativeRender_glesSetType(JNIEnv *env, jobject thiz,
             break;
         case GL_SIMPLE_CAMERA2:
             sample = new SimpleCamera2();
+            break;
+        case GL_SIMPLE_CAMERA3:
+            sample = new SimpleCamera3();
             break;
         default:
             LOGE("sample type not found!!!!");

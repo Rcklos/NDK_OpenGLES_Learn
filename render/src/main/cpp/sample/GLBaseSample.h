@@ -59,7 +59,7 @@ public:
     // 默认啥都不做，等待有需要的子类去重写
 //    virtual void SwitchBlendingMode() {}
 
-//    virtual void SetDelta(float x, float y) {}
+    virtual void SetDelta(float x, float y) {}
 
 //    virtual void SetMinFilter(int filter) {}
 

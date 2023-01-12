@@ -23,6 +23,7 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
     // 在Surface渲染时调用
     private external fun glesDraw()
     external fun glesSetType(type: Int)
+    external fun setDelta(x: Float, y: Float)
 
     init {
         mAssetMgr = context.assets
@@ -83,6 +84,7 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
             // 摄像机
             Pair("摄像机围绕模型旋转", GL_SIMPLE_CAMERA),
             Pair("摄像机原地旋转", GL_SIMPLE_CAMERA2),
+            Pair("摇杆控制摄像机原地旋转", GL_SIMPLE_CAMERA3),
         )
     }
 }

@@ -26,5 +26,6 @@
 
 #define GL_SIMPLE_CAMERA                                (GL_BASE_SAMPLE_TYPE + 15)
 #define GL_SIMPLE_CAMERA2                               (GL_BASE_SAMPLE_TYPE + 16)
+#define GL_SIMPLE_CAMERA3                               (GL_BASE_SAMPLE_TYPE + 17)
 
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLETYPE_H

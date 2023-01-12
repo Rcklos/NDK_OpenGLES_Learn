@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.opengl.GLSurfaceView
+        <cn.lentme.gles.render.ui.MyGLSurfaceView
             android:id="@+id/render_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
