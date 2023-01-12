@@ -3,6 +3,7 @@ package cn.lentme.gles.render
 import android.content.Context
 import android.content.res.AssetManager
 import android.opengl.GLSurfaceView
+import cn.lentme.gles.render.util.CommonUtils
 import java.io.File
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10

@@ -9,9 +9,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import cn.lentme.gles.render.CommonUtils
 import cn.lentme.gles.render.MyNativeRender
-import java.io.File
+import cn.lentme.gles.render.ui.RockerView
+import cn.lentme.learn.gles.databinding.ActivityRenderBinding
 
 class GLRenderActivity: AppCompatActivity() {
     companion object {
@@ -26,12 +26,24 @@ class GLRenderActivity: AppCompatActivity() {
 
     private lateinit var mRender: MyNativeRender
     private lateinit var surface: GLSurfaceView
+    private lateinit var rockerView: RockerView
+    private lateinit var mBinding: ActivityRenderBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mBinding = ActivityRenderBinding.inflate(layoutInflater)
+        setContentView(mBinding.root)
+
         // 创建并配置GLSurfaceView
+        initSurface()
+
+        // 创建并配置RockerView
+        initRockerView()
+    }
+
+    private fun initSurface() {
         mRender = MyNativeRender(this)
-        surface = GLSurfaceView(this)
+        surface = mBinding.renderView
         if(detectOpenGLES30()) {
             // 设置OpenGL ES版本
             surface.setEGLContextClientVersion(CONTEXT_CLIENT_VERSION)
@@ -48,8 +60,13 @@ class GLRenderActivity: AppCompatActivity() {
             val type = it.getInt("type")
             mRender.glesSetType(type)
         }
+    }
 
-        setContentView(surface)
+    private fun initRockerView() {
+        rockerView = mBinding.rockerView
+        rockerView.setOnWheelChangedListener {
+            Log.i(localClassName, "angle == $it")
+        }
     }
 
     override fun onResume() {

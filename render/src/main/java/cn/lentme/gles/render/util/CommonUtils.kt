@@ -1,4 +1,4 @@
-package cn.lentme.gles.render
+package cn.lentme.gles.render.util
 
 import android.content.Context
 import android.graphics.*
