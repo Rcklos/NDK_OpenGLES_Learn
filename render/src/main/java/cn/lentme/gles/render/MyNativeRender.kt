@@ -78,7 +78,11 @@ class MyNativeRender(context: Context) : GLSurfaceView.Renderer{
 
             // 模型
             Pair("简单加载模型", GL_SIMPLE_LOAD_MODEL),
-            Pair("加载具有材质的模型", GL_SIMPLE_LOAD_MODEL2)
+            Pair("加载具有材质的模型", GL_SIMPLE_LOAD_MODEL2),
+
+            // 摄像机
+            Pair("摄像机围绕模型旋转", GL_SIMPLE_CAMERA),
+            Pair("摄像机原地旋转", GL_SIMPLE_CAMERA2),
         )
     }
 }

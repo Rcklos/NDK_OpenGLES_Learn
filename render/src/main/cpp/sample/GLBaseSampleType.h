@@ -24,4 +24,7 @@
 #define GL_SIMPLE_LOAD_MODEL                            (GL_BASE_SAMPLE_TYPE + 13)
 #define GL_SIMPLE_LOAD_MODEL2                           (GL_BASE_SAMPLE_TYPE + 14)
 
+#define GL_SIMPLE_CAMERA                                (GL_BASE_SAMPLE_TYPE + 15)
+#define GL_SIMPLE_CAMERA2                               (GL_BASE_SAMPLE_TYPE + 16)
+
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLETYPE_H

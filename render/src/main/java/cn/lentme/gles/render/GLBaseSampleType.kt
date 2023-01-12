@@ -18,3 +18,6 @@ const val GL_HELLO_CUBE3                    = GL_BASE_TYPE + 12
 
 const val GL_SIMPLE_LOAD_MODEL              = GL_BASE_TYPE + 13
 const val GL_SIMPLE_LOAD_MODEL2             = GL_BASE_TYPE + 14
+
+const val GL_SIMPLE_CAMERA                  = GL_BASE_TYPE + 15
+const val GL_SIMPLE_CAMERA2                 = GL_BASE_TYPE + 16

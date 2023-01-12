@@ -227,7 +227,7 @@ char *esLoadTGA(const char *fileName, int *width, int *height) {
             LOGE ("esLoadTGA FAILED to load : { %s }\n", fileName)
             return nullptr;
         }
-        LOGI ("sizeof ( TGA_HEADER ) : { %u }\n", sizeof(TGA_HEADER))
+        LOGI ("sizeof ( TGA_HEADER ) : { %u }\n", (unsigned)sizeof(TGA_HEADER))
         bytesRead = esFileRead(fp, sizeof(TGA_HEADER), &Header);
 
         *width = Header.Width;
@@ -287,7 +287,7 @@ GLuint GLUtils::loadTexture(const char *path) {
     FUN_BEGIN_TIME("GLUtils::loadTexture")
         LOGI("GLUtils::loadTexture path [%s]" ,path)
         jclass utilsClass = sEnv->FindClass(
-                "cn/lentme/gles/render/Utils");
+                "cn/lentme/gles/render/util/Utils");
         if (utilsClass == nullptr) {
             LOGE("Couldn't find utils class")
             return (GLuint) -1;

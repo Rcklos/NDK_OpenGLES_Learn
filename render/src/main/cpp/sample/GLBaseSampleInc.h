@@ -22,5 +22,7 @@
 
 #include "model/SimpleLoadModel.h"
 #include "model/SimpleLoadModel2.h"
+#include "camera/SimpleCamera.h"
+#include "camera/SimpleCamera2.h"
 
 #endif //NDK_OPENGLES_LEARN_GLBASESAMPLEINC_H

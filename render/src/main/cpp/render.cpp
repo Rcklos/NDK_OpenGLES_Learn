@@ -82,6 +82,12 @@ Java_cn_lentme_gles_render_MyNativeRender_glesSetType(JNIEnv *env, jobject thiz,
         case GL_SIMPLE_LOAD_MODEL2:
             sample = new SimpleLoadModel2();
             break;
+        case GL_SIMPLE_CAMERA:
+            sample = new SimpleCamera();
+            break;
+        case GL_SIMPLE_CAMERA2:
+            sample = new SimpleCamera2();
+            break;
         default:
             LOGE("sample type not found!!!!");
             break;
