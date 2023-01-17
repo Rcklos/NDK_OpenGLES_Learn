@@ -46,6 +46,12 @@ Java_cn_lentme_gles_render_MyNativeRender_setDelta(JNIEnv *env, jobject thiz, jf
 
 extern "C"
 JNIEXPORT void JNICALL
+Java_cn_lentme_gles_render_MyNativeRender_setDirection(JNIEnv *env, jobject thiz, jint dir) {
+    sample->SetDirection(dir);
+}
+
+extern "C"
+JNIEXPORT void JNICALL
 Java_cn_lentme_gles_render_MyNativeRender_glesSetType(JNIEnv *env, jobject thiz, jint type) {
     switch(type) {
         case GL_HELLO_TRIANGLE:
@@ -98,6 +104,9 @@ Java_cn_lentme_gles_render_MyNativeRender_glesSetType(JNIEnv *env, jobject thiz,
             break;
         case GL_SIMPLE_CAMERA3:
             sample = new SimpleCamera3();
+            break;
+        case GL_SIMPLE_CAMERA4:
+            sample = new SimpleCamera4();
             break;
         default:
             LOGE("sample type not found!!!!");

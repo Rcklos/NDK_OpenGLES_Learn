@@ -66,12 +66,16 @@ class GLRenderActivity: AppCompatActivity() {
     private fun initRockerView() {
         rockerView = mBinding.rockerView
         rockerView.setOnWheelChangedListener {
-            if(it in 0.0f..45.0f || it in (315.0f..360.0f))
-                surface.setDelta(1.0f, 0.0f)
-            if(it in 135.0f..225.0f)
-                surface.setDelta(-1.0f, 0.0f)
+            if(it in 0.0f..45.0f || it > 315.0f && it <= 360.0f )
+                surface.setDirection(MyGLSurfaceView.DIRECTION_RIGHT)
+            if(it > 45.0f && it <= 135.0f)
+                surface.setDirection(MyGLSurfaceView.DIRECTION_UP)
+            if(it > 135.0f && it <= 225.0f)
+                surface.setDirection(MyGLSurfaceView.DIRECTION_LEFT)
+            if(it > 225.0f && it <= 315.0f)
+                surface.setDirection(MyGLSurfaceView.DIRECTION_DOWN)
             if(it.isNaN())
-                surface.setDelta(0.0f, 0.0f)
+                surface.setDirection(MyGLSurfaceView.DIRECTION_NONE)
         }
     }
 

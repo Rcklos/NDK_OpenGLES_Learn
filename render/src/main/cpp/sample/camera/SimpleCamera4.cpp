@@ -2,11 +2,11 @@
 // Created by 20152 on 2023/1/9.
 //
 
-#include "SimpleCamera3.h"
+#include "SimpleCamera4.h"
 #include "GLUtils.h"
 #include <string>
 
-void SimpleCamera3::Create() {
+void SimpleCamera4::Create() {
     // 加载模型
     mModel = new Model(std::string(cacheDir) + "/object/town/old_town_block.obj");
 
@@ -23,9 +23,9 @@ void SimpleCamera3::Create() {
     glEnable(GL_DEPTH_TEST);
 }
 
-void SimpleCamera3::Draw() {
+void SimpleCamera4::Draw() {
     if(mShader == nullptr || mModel == nullptr) return;
-//    LOGD("SimpleCamera3::Draw()");
+//    LOGD("SimpleCamera4::Draw()");
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -40,7 +40,7 @@ void SimpleCamera3::Draw() {
     mModel->Draw(*mShader);
 }
 
-void SimpleCamera3::Shutdown() {
+void SimpleCamera4::Shutdown() {
     GLBaseSample::Shutdown();
     // 销毁模型
     if(mModel != nullptr) {
@@ -57,7 +57,7 @@ void SimpleCamera3::Shutdown() {
     }
 }
 
-float SimpleCamera3::computeDeltaTime() {
+float SimpleCamera4::computeDeltaTime() {
     if (mLastTime == 0) {
         mLastTime = TimeUtils::currentTimeMillis();
     }
@@ -68,7 +68,7 @@ float SimpleCamera3::computeDeltaTime() {
     return deltaTime;
 }
 
-void SimpleCamera3::update(float deltaTime) {
+void SimpleCamera4::update(float deltaTime) {
     auto aspect = (GLfloat) m_Width / (GLfloat) m_Height;
     auto scale = 1.0f;
 
@@ -76,20 +76,33 @@ void SimpleCamera3::update(float deltaTime) {
 
     // 摄像机
     auto unit = 15.f * deltaTime;
-    if(mDir == GL_DIRECTION_LEFT) degree += unit;
-    if(mDir == GL_DIRECTION_RIGHT) degree -= unit;
-    auto angle = degree / 360.f * 2 * MATH_PI;
+    // 控制摄像机旋转
+    auto delta = mDelta;
+    auto dx = delta.x - mLast.x;
+    if(delta.x != -1.0f && dx != 0) {
+        if(mLast.x != -1.0f) {
+            degree_x += -dx * 45.0f;
+        }
+    }
+    mLast = delta;
+//    if(mDir == GL_DIRECTION_LEFT) degree_x += unit;
+//    if(mDir == GL_DIRECTION_RIGHT) degree_x -= unit;
+    auto angle = degree_x / 360.f * 2 * MATH_PI;
     float camX = sin(angle);
     float camZ = cos(angle);
+    glm::vec3 direction = glm::normalize(glm::vec3(camX, 0.0f, camZ));
+    glm::vec3 up = glm::vec3(0, 1.0f, 0);
+
+    // 移动摄像机
+    auto moveUnit = 35 * deltaTime;
+    if(mDir == GL_DIRECTION_UP) eye += moveUnit * direction;
+    if(mDir == GL_DIRECTION_DOWN) eye -= moveUnit * direction;
+    if(mDir == GL_DIRECTION_LEFT) eye -= glm::cross(direction, up) * moveUnit;
+    if(mDir == GL_DIRECTION_RIGHT) eye += glm::cross(direction, up) * moveUnit;
+
+    auto center = eye + direction;
 //    LOGD("camera: camX=%.2lf, camZ=%.2lf", camX, camZ)
-    auto view = glm::lookAt(
-            // location
-            glm::vec3(0, 0.0f, 0),
-            // direction
-            glm::normalize(glm::vec3(camX, 0.0f, camZ)),
-            // up
-            glm::vec3(0.0f, 1.0f, 0.0f)
-            );
+    auto view = glm::lookAt(eye, center, up);
 
     auto model = glm::mat4(1.f);
     // 位移到视野看得到的地方
@@ -99,7 +112,14 @@ void SimpleCamera3::update(float deltaTime) {
     mvp = proj * view * model;
 }
 
-void SimpleCamera3::SetDirection(int dir) {
+void SimpleCamera4::SetDirection(int dir) {
     GLBaseSample::SetDirection(dir);
     mDir = dir;
 }
+
+void SimpleCamera4::SetDelta(float x, float y) {
+    GLBaseSample::SetDelta(x, y);
+    mDelta = { x, y };
+    LOGD("delta: %.2f, %.2f", x, y);
+}
+

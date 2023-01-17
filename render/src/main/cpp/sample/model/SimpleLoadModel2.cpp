@@ -68,8 +68,8 @@ float SimpleLoadModel2::computeDeltaTime() {
 }
 
 void SimpleLoadModel2::update(float deltaTime) {
-//    if(degree < 360.f) degree += 15.f * deltaTime;
-//    else degree = 0;
+//    if(degree_x < 360.f) degree_x += 15.f * deltaTime;
+//    else degree_x = 0;
 
     auto aspect = (GLfloat) m_Width / (GLfloat) m_Height;
     auto scale = 0.01f;

@@ -22,3 +22,4 @@ const val GL_SIMPLE_LOAD_MODEL2             = GL_BASE_TYPE + 14
 const val GL_SIMPLE_CAMERA                  = GL_BASE_TYPE + 15
 const val GL_SIMPLE_CAMERA2                 = GL_BASE_TYPE + 16
 const val GL_SIMPLE_CAMERA3                 = GL_BASE_TYPE + 17
+const val GL_SIMPLE_CAMERA4                 = GL_BASE_TYPE + 18

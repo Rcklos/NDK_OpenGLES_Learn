@@ -12,6 +12,12 @@
 
 #define DEFAULT_OGL_ASSETS_DIR "/data/data/cn.lentme.learn.gles/cache"
 
+typedef struct delta_t{
+    float x = 0.0f;
+    float y = 0.0f;
+    delta_t(float x, float y): x(x), y(y) {}
+} delta_t;
+
 class GLBaseSample {
 public:
     GLBaseSample(): GLBaseSample(DEFAULT_OGL_ASSETS_DIR) {}
@@ -60,6 +66,8 @@ public:
 //    virtual void SwitchBlendingMode() {}
 
     virtual void SetDelta(float x, float y) {}
+
+    virtual void SetDirection(int dir) {}
 
 //    virtual void SetMinFilter(int filter) {}
 
